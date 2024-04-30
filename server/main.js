@@ -1,21 +1,13 @@
 const express = require("express")
 const path = require("path")
+const dayjs = require("dayjs")
 const app = express();
-
-
-// app.get('/private', (req, res) => {
-// 	if (req.query.user) {
-// 		res.set('Cache-Control', 'private, max-age=600');
-// 		res.send(`Hello ${req.query.user} 1`);
-// 	} else {
-// 		res.status(401).send("Please log in")
-// 	}
-// })
 
 app.use(express.static(path.join(__dirname, 'source'), {
 	setHeaders: (res, path) => {
 		if (path.includes("private")) {
-			res.set("Cache-Control", "private, max-age=0");
+			res.set("Cache-Control", "private,max-age=30, must-revalidate");
+			// res.set("Expires", dayjs().add(10, 's'))
 		} else {
 			res.set('Cache-Control', 'public, max-age=600');
 		}
