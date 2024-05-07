@@ -9,7 +9,8 @@
 	"keywords": [],
 	"devDependencies": {
 		"express": "^4.19.2",
-		"dayjs": "^1.11.11"
+		"dayjs": "^1.11.11",
+		"cors": "^2.8.5"
 	},
 	"author": "",
 	"license": "ISC"

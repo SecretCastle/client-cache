@@ -3,14 +3,21 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Title</title>
-	<link rel="stylesheet" href="http://localhost:3000/private/private.css">
-	<link rel="stylesheet" href="http://localhost:3000/public/public.css">
-	<link rel="stylesheet" href="http://localhost:3000/immutable/immutable.css">
-	<link rel="stylesheet" href="http://localhost:3000/no-store/no-store.css">
-	<link rel="stylesheet" href="http://localhost:3000/no-cache/no-cache.css">
-	<link rel="stylesheet" href="http://localhost:3000/must-revalidate/must-revalidate.css">
+	<!--	<link rel="stylesheet" href="http://localhost:3000/private/private.css">-->
+	<!--	<link rel="stylesheet" href="http://localhost:3000/public/public.css">-->
+	<!--	<link rel="stylesheet" href="http://localhost:3000/immutable/immutable.css">-->
+	<!--	<link rel="stylesheet" href="http://localhost:3000/no-store/no-store.css">-->
+	<!--	<link rel="stylesheet" href="http://localhost:3000/no-cache/no-cache.css">-->
+	<!--	<link rel="stylesheet" href="http://localhost:3000/must-revalidate/must-revalidate.css">-->
+	<!--	<link rel="stylesheet" href="http://localhost:3000/stale-while-revalidate/stale-while-revalidate.css">-->
+	<!--	<link rel="stylesheet" href="http://localhost:3000/stale-if-error/stale-if-error.css">-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js"
+	        integrity="sha512-PJa3oQSLWRB7wHZ7GQ/g+qyv6r4mbuhmiDb8BjSFZ8NZ2a42oTtAq5n0ucWAwcQDlikAtkub+tPVCw4np27WCg=="
+	        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
 <p>Test</p>
+<p class="stale-if-error">Hunter</p>
+<script src="./src/fetch_source.js" type="module"></script>
 </body>
 </html>
