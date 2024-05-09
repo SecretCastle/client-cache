@@ -4,14 +4,30 @@ const path = require("path")
 const app = express();
 const cors = require("cors")
 
+const allowed_headers = ['x-aaa-bbb', 'x-bbb-ccc', 'cache-control', 'x-ijt']
+
 // 增加1000ms延迟，模拟服务器响应时间
 app.use((req, res, next) => {
-	setTimeout(next, 1000)
+	setTimeout(next, 500)
 })
-app.use(cors())
+app.use(cors({
+	allowedHeaders: allowed_headers,
+	maxAge: 120 // 2分钟preflight缓存时效
+}))
+
+// 处理自定义headers
+app.use((req, res, next) => {
+	const headers = req.headers;
+	for (let key in headers) {
+		if (allowed_headers.includes(key)) {
+			res.setHeader(key, headers[key])
+		}
+	}
+	next()
+})
+
 app.use(express.static(path.join(__dirname, 'source'), {
 	setHeaders: (res, path) => {
-
 		if (path.includes("private")) {
 			res.set("Cache-Control", "private, max-age=600");
 		} else if (path.includes("public")) {

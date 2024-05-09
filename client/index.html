@@ -11,13 +11,26 @@
 	<!--	<link rel="stylesheet" href="http://localhost:3000/must-revalidate/must-revalidate.css">-->
 	<!--	<link rel="stylesheet" href="http://localhost:3000/stale-while-revalidate/stale-while-revalidate.css">-->
 	<!--	<link rel="stylesheet" href="http://localhost:3000/stale-if-error/stale-if-error.css">-->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js"
-	        integrity="sha512-PJa3oQSLWRB7wHZ7GQ/g+qyv6r4mbuhmiDb8BjSFZ8NZ2a42oTtAq5n0ucWAwcQDlikAtkub+tPVCw4np27WCg=="
-	        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	<style>
+        pre {
+            background-color: #eee;
+            border-radius: 3px;
+            font-family: courier, monospace;
+            padding: 0 3px;
+        }
+	</style>
 </head>
 <body>
 <p>Test</p>
 <p class="stale-if-error">Hunter</p>
+<pre>
+	<code id="code-area">
+	<!--code here-->
+
+	</code>
+</pre>
+
 <script src="./src/fetch_source.js" type="module"></script>
 </body>
 </html>

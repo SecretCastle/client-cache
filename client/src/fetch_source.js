@@ -1,38 +1,29 @@
 const static_server = 'http://localhost:3000';
 
-export const fetch_source = (url) => {
+const code_area = document.getElementById('code-area');
+
+export const fetch_source = (url, method = 'GET', config) => {
     const headers = new Headers()
-    headers.append('Cache-Control', 'public, max-age=60');
-    headers.append('Content-Type', 'text/css');
+    if (config && typeof config === 'object') {
+        for (let key in config) {
+            headers.append(key, config[key])
+        }
+    }
 
     const request = new Request(static_server + url, {
-        method: 'get', mode: 'no-cors', headers
+        method: method,
+        mode: 'cors', // 开启cors，支持自定义headers。服务端需要做cors处理。
+        headers
     })
 
     fetch(request).then(res => {
         return res.text()
     }).then(data => {
-        console.log(data)
+        code_area.innerText = data.trim()
     })
 }
 
-fetch_source('/public/public.css')
-
-
-function fetch_source_by_axios() {
-    if (window.axios) {
-        axios.get(static_server + '/public/public.css', {
-            mode: 'no-cors',
-            headers: {
-                'Cache-Control': 'max-age=60',
-                'Content-Type': 'text/css'
-            }
-        }).then(res => {
-            console.log(res.data)
-        }).catch(err => {
-            console.error(err)
-        })
-    }
-}
-
-fetch_source_by_axios();
+fetch_source('/public/public.css', 'get', {
+    "Cache-Control": "max-age=0",
+    "x-aaa-bbb": "1"
+})
