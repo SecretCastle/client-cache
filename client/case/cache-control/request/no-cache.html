@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Http缓存 Cache-Control - Request no-cache</title>
+
+	<style>
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            font-size: 14px;
+            overflow: auto;
+        }
+	</style>
+<
+<body>
+<pre>
+	<code id="code"></code>
+</pre>
+<script type="module">
+    import {fetch_helper} from "../../../utils/fetch_helper.js";
+
+    const code = document.getElementById('code');
+    fetch_helper('/source/no-cache/no-cache.css', 'GET', {
+        "Cache-Control": "no-cache"
+    }).then(res => {
+        code.innerText = res;
+    });
+</script>
+</body>
+</html>

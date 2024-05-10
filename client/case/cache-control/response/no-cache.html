@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Http缓存Cache-Control —— no-cache</title>
+	<link rel="stylesheet" href="http://localhost:3000/source/no-cache/no-cache.css">
+</head>
+<body>
+打开控制台查看请求头和响应头
+
+<script>
+    console.group('no-cache');
+    console.log('可以看到，no-cache.css的response header中 Cache-Control为 【no-cache， max-age=60】，表示使用缓存之前，需要先与服务器确认资源是否有更新。即使配置max-age=60缓存有效期，缓存有效期也是不生效的，每次请求都会先与服务器确认资源是否有更新。');
+    console.log('如果服务端资源未作修改，则返回304，如果修改了，则会返回200与新的资源');
+	console.log('属于协商缓存')
+    console.groupEnd();
+</script>
+</body>
+</html>

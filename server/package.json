@@ -10,7 +10,8 @@
 	"devDependencies": {
 		"express": "^4.19.2",
 		"dayjs": "^1.11.11",
-		"cors": "^2.8.5"
+		"cors": "^2.8.5",
+		"cookie-parser": "^1.4.6"
 	},
 	"author": "",
 	"license": "ISC"

@@ -1,4 +1,4 @@
-const static_server = 'http://localhost:3000';
+export const static_server = 'http://localhost:3000';
 
 const code_area = document.getElementById('code-area');
 
@@ -23,7 +23,20 @@ export const fetch_source = (url, method = 'GET', config) => {
     })
 }
 
-fetch_source('/public/public.css', 'get', {
-    "Cache-Control": "max-age=0",
-    "x-aaa-bbb": "1"
-})
+// fetch_source('/public/public.css', 'get', {
+//     "Cache-Control": "max-age=0",
+//     "x-aaa-bbb": "1"
+// })
+
+
+export const lux = (url, method = 'GET') => {
+    const request = new Request(url, {
+        method,
+        mode: 'cors',
+        credentials: 'include'
+    })
+
+    fetch(request).then(res => res.text()).then((data) => {
+        console.log(data)
+    })
+}

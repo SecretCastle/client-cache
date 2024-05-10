@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Http缓存Cache-Control —— s-maxage</title>
+	<link rel="stylesheet" href="http://localhost:3000/source/s-maxage/s-maxage.css">
+</head>
+<body>
+打开控制台查看请求头和响应头
+
+<script>
+console.group('s-maxage')
+console.log('可以打开 Preserve log 选项，查看历史请求头和响应头，进行对比')
+console.log('第一次请求可以看到，s-maxage.css的response header中 Cache-Control为 【public，s-maxage=30，max-age=60】')
+console.log('在浏览器上，依旧会以max-age为准，60s内再次请求时，浏览器直接使用缓存，不会再次请求服务器。')
+console.log('而s-maxage并不生效，chrome浏览器可能会忽略s-maxage，从而简化缓存策略。因为s-maxage按照http规范，只有在代理服务器中才会生效')
+console.log('在浏览器上，和是public还是private无关')
+</script>
+</body>
+</html>

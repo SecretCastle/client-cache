@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Http缓存Cache-Control —— immutable</title>
+
+	<link rel="stylesheet" href="http://localhost:3000/source/immutable/immutable.css">
+</head>
+<body>
+打开控制台查看请求头和响应头
+
+<script>
+	console.group('immutable')
+	console.log('可以打开 Preserve log 选项，查看历史请求头和响应头，进行对比')
+	console.log('第一次请求可以看到，immutable.css的response header中 Cache-Control为 【immutable】，告诉客户端，缓存的响应内容接下来不会再修改，后续可直接使用缓存数据，而不用再向服务器验证资源的新鲜度')
+	console.log('后续刷新网页，依旧会访问缓存数据，而不会获取新数据。即使服务端更新了资源')
+	console.groupEnd()
+</script>
+
+</body>
+</html>

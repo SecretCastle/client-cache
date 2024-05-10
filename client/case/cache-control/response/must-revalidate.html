@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Http缓存Cache-Control —— must-revalidate</title>
+
+	<link rel="stylesheet" href="http://localhost:3000/source/must-revalidate/must-revalidate.css">
+</head>
+<body>
+
+<script>
+    console.group("must-revalidate")
+    console.log("可以打开 Preserve log 选项，查看历史请求头和响应头，进行对比")
+    console.log("第一次请求可以看到，must-revalidate.css的response header中 Cache-Control为 【must-revalidate, max-age=60】，表示资源在60秒内有效，60秒内再次请求时，浏览器直接使用缓存，不会再次请求服务器。")
+    console.log("如果服务端资源在60s内更新了，那么客户端在缓存到期之前都不会向服务器发起资源新鲜度验证请求，直接使用缓存。")
+    console.log("超过了缓存有效期，如果服务端资源未作修改，则返回304，如果修改了，则会返回200与新的资源")
+</script>
+</body>
+</html>

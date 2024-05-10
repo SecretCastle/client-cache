@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Title</title>
+	<title>Http缓存</title>
 	<!--	<link rel="stylesheet" href="http://localhost:3000/private/private.css">-->
 	<!--	<link rel="stylesheet" href="http://localhost:3000/public/public.css">-->
 	<!--	<link rel="stylesheet" href="http://localhost:3000/immutable/immutable.css">-->
@@ -22,15 +22,24 @@
 	</style>
 </head>
 <body>
-<p>Test</p>
-<p class="stale-if-error">Hunter</p>
-<pre>
-	<code id="code-area">
-	<!--code here-->
+Response
+<ul>
+	<li><a href="case/cache-control/response/max-age.html" target="_blank">max-age</a></li>
+	<li><a href="case/cache-control/response/s-maxage.html" target="_blank">s-maxage</a></li>
+	<li><a href="case/cache-control/response/no-cache.html" target="_blank">no-cache</a></li>
+	<li><a href="case/cache-control/response/no-store.html" target="_blank">no-store</a></li>
+	<li><a href="case/cache-control/response/must-revalidate.html" target="_blank">must-revalidate</a></li>
+	<li><a href="case/cache-control/response/immutable.html" target="_blank">immutable</a></li>
+</ul>
 
-	</code>
-</pre>
 
-<script src="./src/fetch_source.js" type="module"></script>
+Request
+<ul>
+	<li><a href="case/cache-control/request/no-cache.html" target="_blank">no-cache</a></li>
+
+</ul>
+
+<!--<script src="./src/fetch_source.js" type="module"></script>-->
+<!--<script src="./src/cookie/request.js" type="module"></script>-->
 </body>
 </html>

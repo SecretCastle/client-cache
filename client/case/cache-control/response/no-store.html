@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Http缓存Cache-Control —— no-store</title>
+	<link rel="stylesheet" href="http://localhost:3000/source/no-store/no-store.css">
+</head>
+<body>
+打开控制台查看请求头和响应头
+
+<script>
+    console.group('no-store');
+    console.log('可以看到，no-cache.css的response header中 Cache-Control为 【no-store， max-age=60】。表示不使用客户端缓存，每次请求客户端都会向服务器发送新的请求，返回200');
+    console.groupEnd();
+</script>
+</body>
+</html>
