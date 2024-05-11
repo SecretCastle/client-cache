@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Http缓存 Cache-Control - Request max-age</title>
+	<link rel="stylesheet" href="../../../style/base.css">
+</head>
+<body>
+<pre>
+	<code id="code"></code>
+</pre>
+
+<div class="intro">
+	<ul>
+		<li>客户端告诉服务端，客户端期望的缓存有效期</li>
+		<li>但是最终客户端是否重新向服务端发送请求验证资源的新鲜度的条件，还是response中的max-age</li>
+		<ol>
+			<li>max-age=0 第一次访问后，再次访问，还是会从服务器获取资源新鲜度; 不遵循服务端response的max-age资源缓存有效时间</li>
+			<li>max-age>0 依旧按照response header中cache-control的max-age来作为缓存有效期</li>
+		</ol>
+	</ul>
+
+<script type="module">
+    import {fetch_helper} from "../../../utils/fetch_helper.js";
+
+    const code = document.getElementById('code');
+    // max-age=0
+    // fetch_helper('/source/max-age/max-age.css', 'GET', {
+    //     "Cache-Control": "max-age=0"
+    // }).then(res => {
+    //     code.innerText = res;
+    // });
+
+    // max-age=100
+    fetch_helper('/source/max-age/max-age.css', 'GET', {
+        "Cache-Control": "max-age=100"
+    }).then(res => {
+        code.innerText = res;
+    });
+
+</script>
+</body>
+</html>

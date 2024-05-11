@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Http缓存 Cache-Control - Request no-cache</title>
+	<title>Http缓存 Cache-Control - Request min-fresh</title>
 	<link rel="stylesheet" href="../../../style/base.css">
 </head>
 <body>
@@ -11,16 +11,17 @@
 </pre>
 <div class="intro">
 	<ul>
-		<li>在request header中增加 cache-control: no-cache。表示客户端向服务器获取最新的资源，即使客户端缓存未过期</li>
-		<li>这个行为类似于 force reloading 网页，即 ctrl + f5。</li>
+		<li>在request header中增加 cache-control: min-fresh=10。表示客户端希望获取的资源新鲜度至少为10秒</li>
+		<li>如果缓存资源的新鲜度小于10秒，客户端会向服务器请求新的资源</li>
 	</ul>
 </div>
+
 <script type="module">
     import {fetch_helper} from "../../../utils/fetch_helper.js";
 
     const code = document.getElementById('code');
-    fetch_helper('/source/no-cache/no-cache.css', 'GET', {
-        "Cache-Control": "no-cache"
+    fetch_helper('/source/max-age/max-age.css', 'GET', {
+        "Cache-Control": "min-fresh=90"
     }).then(res => {
         code.innerText = res;
     });

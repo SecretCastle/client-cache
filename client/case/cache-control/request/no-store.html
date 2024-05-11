@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Http缓存 Cache-Control - Request no-store</title>
+	<link rel="stylesheet" href="../../../style/base.css">
+</head>
+<body>
+<pre>
+	<code id="code"></code>
+</pre>
+<div class="intro">
+	<ul>
+		<li>在request header中增加 cache-control: no-store。用于指示客户端（例如浏览器）不应该将请求或响应的任何部分存储在本地缓存中，即不要保存任何关于此次请求和响应的缓存数据。。</li>
+		<li>但是如果在response header中cache-control包含缓存有效期等配置，客户端最终还是会以response header中的cache-control来生效缓存策略</li>
+	</ul>
+</div>
+<script type="module">
+	import {fetch_helper} from "../../../utils/fetch_helper.js";
+
+	const code = document.getElementById('code');
+	fetch_helper('/source/max-age/max-age.css', 'GET', {
+		"Cache-Control": "no-store"
+	}).then(res => {
+		code.innerText = res;
+	});
+</script>
+</body>
+</html>
